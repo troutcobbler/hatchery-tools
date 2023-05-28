@@ -1,0 +1,11 @@
+#!/bin/bash
+
+get_vmname () {
+  echo $1 | awk 'BEGIN { FS = "-" } ; {print $1"-"$2}'
+}
+
+vmname=$(get_vmname $1)
+
+qemu-img create -f qcow2 $vmname.cow 20G
+
+cp /usr/share/ovmf/OVMF.fd $vmname.fd

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sha512sum -c $1.sha512sum.asc
+gpg --verify $1.sha512sum.asc

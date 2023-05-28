@@ -1,0 +1,11 @@
+#!/bin/bash
+
+get_vmname () {
+  echo $1 | awk 'BEGIN { FS = "-" } ; {print $1"-"$2}'
+}
+
+vmname=$(get_vmname $1)
+
+rm $vmname.cow
+
+rm $vmname.fd

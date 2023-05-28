@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sha512sum $1 > $1.sha512sum
+gpg --clearsign $1.sha512sum
+rm $1.sha512sum
